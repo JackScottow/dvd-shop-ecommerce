@@ -25,7 +25,7 @@ const Checkout = ({ basket }) => {
               </Col>
               <Col></Col>
               <Col>
-                <Form.Label>Security Number</Form.Label>
+                <Form.Label>Security</Form.Label>
               </Col>
             </Row>
             <Row>
