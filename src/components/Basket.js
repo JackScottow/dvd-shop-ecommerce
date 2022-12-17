@@ -42,10 +42,10 @@ const Basket = ({ basket, plusQty, minusQty, clearBasket }) => {
             Empty Basket
           </Button>
           <Button href="/checkout" variant="success" className="basket-button" basket={basket}>
-            Proceed to Checkout
+            Checkout
           </Button>
           <p>
-            Total : <span className="total-cost">£{(basketQty * 2.99).toFixed(2)}</span>
+            Total <span className="total-cost">£{(basketQty * 2.99).toFixed(2)}</span>
           </p>
         </div>
       ) : (

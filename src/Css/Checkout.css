@@ -22,3 +22,16 @@
   display: flex;
   justify-content: space-between;
 }
+@media only screen and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+
+  .checkout-container {
+    grid-template-columns: auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+}
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+}
