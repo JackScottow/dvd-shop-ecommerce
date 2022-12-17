@@ -1,0 +1,86 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: black;
+}
+
+.basket-item-link:hover {
+  text-decoration: underline;
+}
+
+.basket-container {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-bottom: 10vh;
+}
+
+.basket-item {
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.basket-item-product-details {
+  display: flex;
+  align-items: center;
+}
+.basket-item-product-details img {
+  border-radius: 0.25rem;
+  padding-right: 0.5rem;
+}
+
+.basket-item-cost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.basket-adjust {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  padding: 0.5rem;
+}
+
+.basket-adjust * {
+  margin: 0.25rem;
+}
+
+.basket-adjust-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.qty {
+  text-align: center;
+  width: 2rem;
+}
+
+.basket-total {
+  border-radius: 0.5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+}
+.basket-total > * {
+  margin: 0 5%;
+}
+.total-cost {
+  font-weight: 600;
+}

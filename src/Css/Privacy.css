@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+h1 {
+  align-self: center;
+  text-decoration: underline;
+}
+
+.container > * {
+  margin: 2rem 7rem 0 7rem;
+  text-align: start;
+}

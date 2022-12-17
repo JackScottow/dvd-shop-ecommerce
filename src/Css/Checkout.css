@@ -1,0 +1,24 @@
+.checkout-container {
+  margin: 1rem 1rem 12vh 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.checkout-summary-card {
+  width: 80%;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.checkout-summary-card:hover {
+  transform: scale(1);
+  cursor: default;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+}

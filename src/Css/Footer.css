@@ -1,0 +1,28 @@
+footer {
+  background-color: #212529;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff8c;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  height: 10vh;
+}
+footer a {
+  color: #ffffff8c;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ffffffd8;
+  text-decoration: underline;
+}
+footer ul {
+  display: flex;
+}
+footer ul li {
+  list-style-type: none;
+  margin: 0 1vw;
+}

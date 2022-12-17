@@ -1,0 +1,29 @@
+.swiper-slide {
+  max-height: 50vh;
+  border: 1px solid black;
+}
+.swiper-img {
+  width: 100vw;
+  object-fit: cover;
+}
+
+.swiper-slide p {
+  font-size: 5rem;
+  font-weight: 600;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #000000;
+}
+
+.home-blurb {
+  background-color: white;
+  margin: 2vw;
+  padding: 5vw;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  height: 100%;
+}

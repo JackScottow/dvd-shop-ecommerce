@@ -1,0 +1,31 @@
+.basket-popover {
+  display: flex;
+  justify-content: space-between;
+}
+
+.basket-popover div {
+  margin: 0 0.5rem;
+}
+
+.bs-popover-bottom {
+  min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+.basket-popover-total {
+  font-size: 1.25rem;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  text-align: end;
+}
+
+.dropdown-menu {
+  width: 100%;
+}
+
+.colorNav {
+  background-color: #212529;
+}
+
+.popover {
+  max-width: 100%;
+}

@@ -1,0 +1,16 @@
+.container-lg {
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  height: 75vh;
+  background-color: white;
+}
+
+.container > * {
+  margin: 1rem 0.25rem;
+}
+
+textarea {
+  height: 8.3rem;
+  resize: none;
+}
