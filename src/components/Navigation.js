@@ -4,7 +4,12 @@ import Popover from "react-bootstrap/Popover";
 import genreList from "../Data/Genres";
 import "../Css/Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouseChimney, faCartShopping, faVideo, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHouseChimney,
+  faCartShopping,
+  faVideo,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 function Navigation({ basket }) {
   let basketQty = 0;
   let basketPrice = 0;
@@ -32,12 +37,29 @@ function Navigation({ basket }) {
               <FontAwesomeIcon icon={faHouseChimney} />
               &nbsp;Home
             </Nav.Link>
-            <NavDropdown className="px-5" bg="dark" variant="dark" href="/genres" id="basic-nav-dropdown" title={[<FontAwesomeIcon icon={faVideo} />, " Movies"]} key="dropdown">
-              <NavDropdown.Item href="/popular" style={{ textAlign: "center" }} key="popular">
+            <NavDropdown
+              className="px-5"
+              bg="dark"
+              variant="dark"
+              href="/genres"
+              id="basic-nav-dropdown"
+              title={[<FontAwesomeIcon icon={faVideo} />, " Movies"]}
+              key="dropdown"
+            >
+              <NavDropdown.Item
+                href="/popular"
+                style={{ textAlign: "center" }}
+                key="popular"
+              >
                 Popular
               </NavDropdown.Item>
               {genreList.map((genre) => (
-                <NavDropdown.Item className="p-0" href={`/genre/${genre.name}`} style={{ height: "max-content", textAlign: "center" }} key={genre.name}>
+                <NavDropdown.Item
+                  className="p-0"
+                  href={`/genre/${genre.name}`}
+                  style={{ height: "max-content", textAlign: "center" }}
+                  key={genre.name}
+                >
                   {genre.name}
                 </NavDropdown.Item>
               ))}
@@ -59,14 +81,23 @@ function Navigation({ basket }) {
                           </div>
                         ))
                       : "Basket is empty"}
-                    <div className="basket-popover-total">Total - £{basketPrice.toFixed(2)}</div>
+                    <div className="basket-popover-total">
+                      Total - £{basketPrice.toFixed(2)}
+                    </div>
                   </Popover.Body>
                 </Popover>
               }
             >
-              <Nav.Link className="px-5" href="/basket" key="basket">
+              <Nav.Link
+                className="px-5"
+                href={basketQty > 0 ? "/basket" : ""}
+                key="basket"
+              >
                 <FontAwesomeIcon icon={faCartShopping} />
-                &nbsp; Basket {basketQty > 0 ? `[${basketQty} - £${basketPrice.toFixed(2)}]` : ""}
+                &nbsp; Basket{" "}
+                {basketQty > 0
+                  ? `[${basketQty} - £${basketPrice.toFixed(2)}]`
+                  : ""}
               </Nav.Link>
             </OverlayTrigger>
             <Nav.Link className="px-5" href="/contact" key="contact">
