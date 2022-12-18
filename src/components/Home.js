@@ -22,7 +22,6 @@ const Home = () => {
   return (
     <>
       <div className="home-page-content-container">
-        <p className="home-blurb shadow">Welcome to our DVD sale company! We offer a wide selection of DVDs at discounted prices. From classic movies to the latest blockbusters, we have something for everyone. Our collection is constantly being updated with new titles, so be sure to check back often for the best deals. Shop with us and enjoy the convenience of buying all your favorite movies in one place. Happy shopping!</p>
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -82,7 +81,8 @@ const Home = () => {
               <p>War</p>
             </Link>
           </SwiperSlide>
-        </Swiper>
+        </Swiper>{" "}
+        <p className="home-blurb shadow">Welcome to our DVD sale company! We offer a wide selection of DVDs at discounted prices. From classic movies to the latest blockbusters, we have something for everyone. Our collection is constantly being updated with new titles, so be sure to check back often for the best deals. Shop with us and enjoy the convenience of buying all your favorite movies in one place. Happy shopping!</p>
       </div>
     </>
   );

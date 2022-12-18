@@ -1,29 +1,33 @@
 .swiper-slide {
-  max-height: 50vh;
-  border: 1px solid black;
+  height: 80%;
 }
 .swiper-img {
   width: 100vw;
-  object-fit: cover;
+  object-fit: fill;
 }
 
+.swiper-wrapper {
+  height: 20vh;
+}
 .swiper-slide p {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 600;
   color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #000000;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
 .home-blurb {
   background-color: white;
-  margin: 2vw;
-  padding: 5vw;
+  padding: 1rem;
+  margin: 1rem;
   border-radius: 1rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   height: 100%;
+}
+.home-page-content-container {
+  padding-bottom: 10vh;
 }
