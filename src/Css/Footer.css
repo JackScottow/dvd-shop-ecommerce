@@ -5,8 +5,10 @@ footer {
   z-index: 1;
   position: fixed;
   bottom: 0;
-  height: 10vh;
+  height: fit-content;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 footer a {
   color: #ffffff8c;
@@ -45,7 +47,6 @@ footer ul li {
 
   li .svg-inline--fa {
     transform: scale(1.25);
-    padding-top: 1rem;
   }
   /*Small smartphones [325px -> 425px]*/
 }
