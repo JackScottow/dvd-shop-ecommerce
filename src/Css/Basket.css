@@ -90,6 +90,10 @@ a:hover {
   justify-content: center;
   margin: 1rem;
 }
+
+.basket-button svg {
+  justify-self: flex-start;
+}
 .total-cost {
   font-weight: 600;
 }
