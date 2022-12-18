@@ -29,3 +29,17 @@
 .popover {
   max-width: 100%;
 }
+
+.nav-item .dropdown-menu {
+  background: #212529;
+  border: 0;
+  box-shadow: inset 0px 0px 1px 1px #444444;
+}
+
+.nav-item .dropdown-item {
+  color: #ffffff;
+}
+
+.nav-item .dropdown-item:hover {
+  background: rgb(71, 79, 87);
+}
