@@ -49,16 +49,18 @@ function Navigation({ basket }) {
               overlay={
                 <Popover id="popover-positioned-top">
                   <Popover.Body>
-                    {basket.length > 0
-                      ? basket.map((item) => (
-                          <div className="basket-popover">
-                            <div>{item.title}</div>{" "}
-                            <div>
-                              £{item.price} x {item.qty}
-                            </div>
+                    {basket.length > 0 ? (
+                      basket.map((item) => (
+                        <div className="basket-popover">
+                          <div>{item.title}</div>{" "}
+                          <div>
+                            £{item.price} x {item.qty}
                           </div>
-                        ))
-                      : "Basket is empty"}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="basket-popover">Basket is empty</div>
+                    )}
                     <div className="basket-popover-total">Total - £{basketPrice.toFixed(2)}</div>
                   </Popover.Body>
                 </Popover>

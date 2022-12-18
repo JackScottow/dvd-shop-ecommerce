@@ -8,29 +8,29 @@ const Footer = () => {
       <ul>
         <li>
           <a href="https://github.com/JackScottow">
-            <FontAwesomeIcon icon={faGithub} /> GitHub
+            <FontAwesomeIcon icon={faGithub} /> <div className="footer-text">GitHub</div>
           </a>
         </li>
         <li>
           <a href="https://facebook.com">
-            <FontAwesomeIcon icon={faFacebook} /> Facebook
+            <FontAwesomeIcon icon={faFacebook} /> <div className="footer-text">Facebook</div>
           </a>
         </li>
         <li>
           <a href="https://instagram.com">
-            <FontAwesomeIcon icon={faInstagram} /> Instagram
+            <FontAwesomeIcon icon={faInstagram} /> <div className="footer-text">Instagram</div>
           </a>
         </li>
         <li>
           <a href="https://twitter.com">
-            <FontAwesomeIcon icon={faTwitter} /> Twitter
+            <FontAwesomeIcon icon={faTwitter} /> <div className="footer-text">Twitter</div>
           </a>
         </li>
       </ul>
-      <p>
+      <div>
         <a href="/privacy">Privacy Policy </a> | <a href="/termsofuse">Terms of Use</a>
-      </p>
-      <p>Copyright 2022</p>
+      </div>
+      <div>Copyright 2022</div>
     </footer>
   );
 };
