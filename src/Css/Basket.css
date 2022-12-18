@@ -31,8 +31,11 @@ a:hover {
 .basket-item-product-details {
   display: flex;
   align-items: center;
+  justify-content: start;
 }
 .basket-item-product-details img {
+  align-self: start;
+  height: 100%;
   border-radius: 0.25rem;
   padding-right: 0.5rem;
 }
@@ -48,7 +51,6 @@ a:hover {
 .basket-adjust {
   display: flex;
   justify-content: center;
-  width: 50%;
   padding: 0.5rem;
 }
 
@@ -83,4 +85,21 @@ a:hover {
 }
 .total-cost {
   font-weight: 600;
+}
+
+@media (max-width: 1366px) {
+}
+
+@media (max-width: 768px) {
+  .basket-item-product-details {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .basket-item-cost {
+    align-items: flex-end;
+
+    text-align: right;
+  }
 }

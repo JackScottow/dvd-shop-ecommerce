@@ -48,6 +48,12 @@ function App() {
     }
   };
 
+  const removeItem = (product) => {
+    let i = cart.findIndex((e) => e.id === product.id);
+    let tempCart = cart.filter((item, x) => x !== i);
+    setCart([...tempCart]);
+  };
+
   const clearBasket = () => {
     setCart([]);
   };
@@ -61,7 +67,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout basket={cart} />}>
           <Route index element={<Home />} />
-          <Route path="/basket" element={<Basket basket={cart} plusQty={plusQty} minusQty={minusQty} clearBasket={clearBasket} />} />
+          <Route path="/basket" element={<Basket basket={cart} plusQty={plusQty} minusQty={minusQty} clearBasket={clearBasket} removeItem={removeItem} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/genre/:genre" element={<Genre />} />
