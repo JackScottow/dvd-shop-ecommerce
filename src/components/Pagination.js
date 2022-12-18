@@ -5,12 +5,18 @@ import { Card } from "react-bootstrap";
 const Pagination = ({ list }) => {
   const items = list;
   const [displayedItems, setDisplayedItems] = useState(items.slice(0, 8));
-
+  console.log(list[0]);
   const handleScroll = () => {
     // check if user has reached bottom of page
-    if (window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight - 50) {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >
+      document.documentElement.offsetHeight - 50
+    ) {
       // load next 4 items from array
-      setDisplayedItems([...displayedItems, ...items.slice(displayedItems.length, displayedItems.length + 4)]);
+      setDisplayedItems([
+        ...displayedItems,
+        ...items.slice(displayedItems.length, displayedItems.length + 4),
+      ]);
     }
   };
 
@@ -22,7 +28,11 @@ const Pagination = ({ list }) => {
   return (
     <>
       {displayedItems.map((item) => (
-        <Link to={`/movie/${item.title.replace("/", "").split(" ").join("")}`} key={item.id} state={item.id}>
+        <Link
+          to={`/movie/${item.title.replace("/", "").split(" ").join("")}`}
+          key={item.id}
+          state={item.id}
+        >
           <Card className="text-center m-4 shadow card" key={item.id}>
             <Card.Img
               variant="top"
