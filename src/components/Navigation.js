@@ -1,4 +1,5 @@
 import { Nav, Navbar, NavDropdown, Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import genreList from "../Data/Genres";
@@ -12,6 +13,8 @@ function Navigation({ basket }) {
     basketQty += item.qty;
     basketPrice += item.qty * item.price;
   });
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -76,11 +79,13 @@ function Navigation({ basket }) {
               &nbsp; Contact
             </Nav.Link>
             <Form className="d-flex mx-3">
-              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
+              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" id="searchQ" />
               <Button
                 variant="outline-light"
                 onClick={(e) => {
-                  console.log(e.target.previousSibling.value);
+                  if (e.target.previousSibling.value !== "") {
+                    navigate(`search/${e.target.previousSibling.value}`);
+                  }
                 }}
               >
                 Search

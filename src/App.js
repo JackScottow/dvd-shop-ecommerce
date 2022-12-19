@@ -14,6 +14,7 @@ import Privacy from "./components/Privacy";
 import Terms from "./components/Terms";
 import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
+import Search from "./components/Search";
 
 function App() {
   const [cart, setCart] = useState(localStorage.getItem("Cart") ? JSON.parse(localStorage.getItem("Cart")) : []);
@@ -75,6 +76,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/termsofuse" element={<Terms />} />
           <Route path="/checkout" element={<Checkout basket={cart} />} />
+          <Route path="/search/:searchterm" element={<Search />} />
         </Route>
       </Routes>
       <Footer />

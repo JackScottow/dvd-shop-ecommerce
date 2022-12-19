@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Card } from "react-bootstrap";
 import Pagination from "./Pagination";
 import "../Css/Gallery.css";
 const Popular = ({ onAdd }) => {
