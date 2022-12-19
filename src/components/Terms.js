@@ -2,6 +2,7 @@ import "../Css/Terms.css";
 import React from "react";
 
 const Terms = () => {
+  document.title = "Terms of Use";
   return (
     <div className="container">
       <h1>Terms of Use</h1>
@@ -19,10 +20,7 @@ const Terms = () => {
         <li>All prices are subject to change without notice.</li>
         <li>We do not guarantee the accuracy or completeness of any information on our website.</li>
       </ul>
-      <p>
-        By using our website, you agree to be bound by these terms of use. We reserve the right to update or change these terms of use at any time
-        without notice. Your continued use of our website constitutes your acceptance of any changes to these terms of use.
-      </p>
+      <p>By using our website, you agree to be bound by these terms of use. We reserve the right to update or change these terms of use at any time without notice. Your continued use of our website constitutes your acceptance of any changes to these terms of use.</p>
     </div>
   );
 };

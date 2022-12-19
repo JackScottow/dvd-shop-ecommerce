@@ -11,7 +11,7 @@ const Basket = ({ basket, plusQty, minusQty, clearBasket, removeItem }) => {
   basket.forEach((item) => {
     basketQty += item.qty;
   });
-
+  document.title = "Basket";
   return (
     <div className="basket-container">
       {basket.length > 0 ? (

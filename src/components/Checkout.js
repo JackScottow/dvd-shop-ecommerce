@@ -11,6 +11,8 @@ const Checkout = ({ basket }) => {
   basket.forEach((item) => {
     basketQty += item.qty;
   });
+
+  document.title = "Checkout";
   return (
     <div className="checkout-container shadow-sm">
       <Form>
@@ -174,6 +176,11 @@ const Checkout = ({ basket }) => {
         </Card.Header>
         <Card.Title className="mx-3">
           <ListGroup className="list-group-flush">
+            {basket.forEach((item) => {
+              <ListGroup.Item>
+                <div>{item.title} </div>
+              </ListGroup.Item>;
+            })}
             <ListGroup.Item>
               <div> Products: </div>
               <div>£{(basketQty * 2.99).toFixed(2)}</div>

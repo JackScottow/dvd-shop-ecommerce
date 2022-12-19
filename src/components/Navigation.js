@@ -6,6 +6,7 @@ import genreList from "../Data/Genres";
 import "../Css/Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouseChimney, faCartShopping, faVideo, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 function Navigation({ basket }) {
   let basketQty = 0;
   let basketPrice = 0;
@@ -13,9 +14,15 @@ function Navigation({ basket }) {
     basketQty += item.qty;
     basketPrice += item.qty * item.price;
   });
+  const [refresh, setRefresh] = useState(false);
 
   const navigate = useNavigate();
-
+  const Search = (e) => {
+    if (e.target.previousSibling.value !== "") {
+      navigate(`search/${e.target.previousSibling.value}`);
+    }
+    setRefresh(!refresh);
+  };
   return (
     <>
       <Navbar expand="xl" variant="dark" className="colorNav">
@@ -80,14 +87,7 @@ function Navigation({ basket }) {
             </Nav.Link>
             <Form className="d-flex mx-3">
               <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" id="searchQ" />
-              <Button
-                variant="outline-light"
-                onClick={(e) => {
-                  if (e.target.previousSibling.value !== "") {
-                    navigate(`search/${e.target.previousSibling.value}`);
-                  }
-                }}
-              >
+              <Button variant="outline-light" onClick={(e) => Search(e)}>
                 Search
               </Button>
             </Form>

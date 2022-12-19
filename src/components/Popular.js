@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Pagination from "./Pagination";
+import { useLocation } from "react-router-dom";
 import "../Css/Gallery.css";
 const Popular = ({ onAdd }) => {
   const [array, setArray] = useState(null);
@@ -13,6 +14,12 @@ const Popular = ({ onAdd }) => {
         setArray([...i[0].results, ...i[1].results, ...i[2].results]);
       });
   }, []);
+
+  if (useLocation().pathname === "/") {
+    document.title = "DVDShop.com";
+  } else {
+    document.title = "Popular Movies";
+  }
 
   return (
     <div>

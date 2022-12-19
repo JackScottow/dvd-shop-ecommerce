@@ -17,8 +17,11 @@ const Genre = ({ onAdd }) => {
       .then((i) => {
         setArray([...i[0].results, ...i[1].results, ...i[2].results]);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  if (genreName) {
+    document.title = genreName;
+  }
   return (
     <div>
       <h1 className="page-title">{genreName}</h1>

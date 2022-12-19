@@ -20,6 +20,7 @@ const Movie = ({ onAdd }) => {
       .then((data) => {
         setMovieDetails(data);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (movieDetails) {
     document.title = movieDetails.title;
