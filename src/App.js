@@ -76,7 +76,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/termsofuse" element={<Terms />} />
           <Route path="/checkout" element={<Checkout basket={cart} />} />
-          <Route path="/search/:searchterm" element={<Search />} />
+          <Route path="/search/:searchterm" element={<Search onAdd={onAdd} />} />
         </Route>
       </Routes>
       <Footer />
