@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import genreList from "../Data/Genres";
-import { Card } from "react-bootstrap";
 import Pagination from "./Pagination";
 
 const Genre = ({ onAdd }) => {

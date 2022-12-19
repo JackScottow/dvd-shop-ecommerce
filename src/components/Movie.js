@@ -1,14 +1,13 @@
 import React from "react";
-import { Container, Row, Col, Button, Image } from "react-bootstrap";
-import { useParams, useLocation } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Basket from "./Basket";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../Css/Movie.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NoImage from "../Images/NoImage.jpg";
 
-const Movie = (props) => {
-  const { onAdd, cart } = props;
+const Movie = ({ onAdd }) => {
   const movieId = useLocation().state;
   const [movieDetails, setMovieDetails] = useState(null);
 
@@ -25,13 +24,13 @@ const Movie = (props) => {
   if (movieDetails) {
     document.title = movieDetails.title;
   }
-
+  console.log(movieDetails);
   return (
     <div className="movie-container">
       {movieDetails ? (
         <div className="product-page">
           <div className="product-image-container">
-            <img src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movieDetails.poster_path}`} alt={movieDetails.title} className="shadow-sm" />
+            <img src={movieDetails.poster_path ? `https://www.themoviedb.org/t/p/w440_and_h660_face/${movieDetails.poster_path}` : NoImage} alt={movieDetails.title} className="shadow-sm" />
           </div>
           <div className="product-info-container shadow-sm">
             <h1>{movieDetails.title}</h1>
@@ -44,12 +43,17 @@ const Movie = (props) => {
               Genre(s):
               {movieDetails.genres.map((genre) => ` ${genre.name}.`)}
             </div>
-            <Button variant="warning" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank">
-              View on IMDb
-            </Button>
+            {movieDetails.imdb_id && movieDetails.imdb_id !== "" ? (
+              <Button variant="warning" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank">
+                View on IMDb
+              </Button>
+            ) : (
+              ""
+            )}
+
             <br />
             <br />
-            <Button variant="success" onClick={() => props.onAdd(movieDetails)} className="add-cart-button">
+            <Button variant="success" onClick={() => onAdd(movieDetails)} className="add-cart-button">
               {`Add to cart `}
               <FontAwesomeIcon icon={faCartShopping} />
             </Button>

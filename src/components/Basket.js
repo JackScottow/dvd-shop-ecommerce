@@ -4,6 +4,7 @@ import "../Css/Basket.css";
 import { Button } from "react-bootstrap";
 import { faTrashCan, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NoImage from "../Images/NoImageSmall.jpg";
 
 const Basket = ({ basket, plusQty, minusQty, clearBasket, removeItem }) => {
   let basketQty = 0;
@@ -17,7 +18,7 @@ const Basket = ({ basket, plusQty, minusQty, clearBasket, removeItem }) => {
         basket.map((item, i) => (
           <div className="basket-item shadow-sm" key={item.id}>
             <div className="basket-item-product-details">
-              <img src={`https://www.themoviedb.org/t/p/w92${item.image}`} alt={item.title} />
+              <img src={item.image ? `https://www.themoviedb.org/t/p/w92${item.image}` : NoImage} alt={item.title} />
               <Link to={`/movie/${item.title.split(" ").join("")}`} key={item.id} state={item.id} className="basket-item-link">
                 {item.title}
               </Link>

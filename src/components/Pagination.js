@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NoImage from "../Images/NoImage.jpg";
 
 const Pagination = ({ list, onAdd }) => {
   const items = list;
@@ -25,7 +26,8 @@ const Pagination = ({ list, onAdd }) => {
       {displayedItems.map((item) => (
         <Card className="text-center m-4 shadow-sm card" key={item.id}>
           <Link to={`/movie/${item.title.replace("/", "").split(" ").join("")}`} key={item.id} state={item.id}>
-            <Card.Img variant="top" src={`https://www.themoviedb.org/t/p/w440_and_h660_face${item.poster_path}`} alt="Product Image" className="mx-auto" />
+            {item.poster_path ? <Card.Img variant="top" src={`https://www.themoviedb.org/t/p/w440_and_h660_face${item.poster_path}`} alt="Product Image" className="mx-auto" /> : <Card.Img variant="top" src={NoImage} alt="Product Image" className="mx-auto" />}
+
             <Card.Body>
               <h4>{item.title}</h4>
             </Card.Body>
