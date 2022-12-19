@@ -3,7 +3,9 @@ import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import { useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Basket from "./Basket";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../Css/Movie.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Movie = (props) => {
   const { onAdd, cart } = props;
@@ -23,7 +25,6 @@ const Movie = (props) => {
   if (movieDetails) {
     document.title = movieDetails.title;
   }
-  console.log(movieDetails);
 
   return (
     <div className="movie-container">
@@ -43,40 +44,18 @@ const Movie = (props) => {
               Genre(s):
               {movieDetails.genres.map((genre) => ` ${genre.name}.`)}
             </div>
-            <Button variant="dark" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank">
+            <Button variant="warning" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank">
               View on IMDb
             </Button>
             <br />
             <br />
-            <Button variant="dark" onClick={() => props.onAdd(movieDetails)} className="add-cart-button">
-              Add to cart
+            <Button variant="success" onClick={() => props.onAdd(movieDetails)} className="add-cart-button">
+              {`Add to cart `}
+              <FontAwesomeIcon icon={faCartShopping} />
             </Button>
           </div>
         </div>
       ) : (
-        // <Container fluid="sm">
-        //   <Row className="mb-3">
-        //     <Col>
-        //       <Image src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movieDetails.poster_path}`} />
-        //     </Col>
-        //     <Col>
-        //   <h3>{movieDetails.title}</h3>
-        //   <p>{movieDetails.tagline}</p>
-        //   <p>{movieDetails.overview}</p>
-        //   <p>Release Date : {movieDetails.release_date}</p>
-        //   <p>Runtime : {movieDetails.runtime} Minutes</p>
-        //   <p>Price £3.99</p>
-        //   <p>
-        //     Genre(s):
-        //     {movieDetails.genres.map((genre) => ` ${genre.name}.`)}
-        //   </p>
-        //   <a href={`https://www.imdb.com/title/${movieDetails.imdb_id}`}>View on IMDb</a>
-        //   <br />
-        //   <br />
-        //       <Button variant="dark">Add to Cart</Button>
-        //     </Col>
-        //   </Row>
-        // </Container>
         ""
       )}
     </div>

@@ -22,7 +22,7 @@ function Navigation({ basket }) {
         </Navbar.Brand>
         <Navbar.Brand className="d-xs-block d-sm-block d-md-block d-lg-block d-xl-none mx-3">
           <Nav.Link href={basketQty > 0 ? "/basket" : ""} key="basket">
-            <FontAwesomeIcon icon={faCartShopping} />
+            <FontAwesomeIcon icon={faCartShopping} /> {basketQty > 0 ? `[ ${basketQty} ]` : ""}
           </Nav.Link>
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -80,7 +80,7 @@ function Navigation({ basket }) {
               <Button
                 variant="outline-light"
                 onClick={(e) => {
-                  console.log(e);
+                  console.log(e.target.previousSibling.value);
                 }}
               >
                 Search

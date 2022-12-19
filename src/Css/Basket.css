@@ -118,4 +118,8 @@ a:hover {
     width: 25vw;
     text-align: center;
   }
+
+  .basket-item-link {
+    margin-top: 1rem;
+  }
 }

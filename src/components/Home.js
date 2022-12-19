@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 import "../Css/Home.css";
 import Horror from "../Images/Home-Swiper/Horror.jpg";
 import Romance from "../Images/Home-Swiper/Romance.jpg";
@@ -15,11 +16,12 @@ import Fantasy from "../Images/Home-Swiper/Fantasy.jpg";
 import Animation from "../Images/Home-Swiper/Animation.jpg";
 import History from "../Images/Home-Swiper/History.jpg";
 import War from "../Images/Home-Swiper/War.jpg";
+
 // import required modules
 import { Autoplay } from "swiper";
 import Popular from "./Popular";
 
-const Home = () => {
+const Home = ({ onAdd }) => {
   return (
     <>
       <div className="home-page-content-container">
@@ -88,7 +90,7 @@ const Home = () => {
           We offer a wide selection of DVDs at discounted prices. From classic movies to the latest blockbusters, we have something for everyone. Our collection is constantly being updated with new titles, so be sure to check back often for the best deals. Shop with us and enjoy the convenience of buying all your favourite movies in one place. Happy shopping!
         </div>
       </div>
-      <Popular />
+      <Popular onAdd={onAdd} />
     </>
   );
 };

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import Pagination from "./Pagination";
 import "../Css/Gallery.css";
-const Popular = () => {
+const Popular = ({ onAdd }) => {
   const [array, setArray] = useState(null);
   // e4082d8b6a175161863c83b42482f659
   // https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg
@@ -14,12 +14,13 @@ const Popular = () => {
         setArray([...i[0].results, ...i[1].results, ...i[2].results]);
       });
   }, []);
+
   return (
     <div>
       <h1 className="page-title">Popular Movies</h1>
       {array ? (
         <div className="products-container">
-          <Pagination list={array} />
+          <Pagination list={array} onAdd={onAdd} />
         </div>
       ) : (
         "Loading"

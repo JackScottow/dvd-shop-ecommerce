@@ -5,7 +5,7 @@ import genreList from "../Data/Genres";
 import { Card } from "react-bootstrap";
 import Pagination from "./Pagination";
 
-const Genre = () => {
+const Genre = ({ onAdd }) => {
   const genreName = useParams().genre;
   const genreId = genreList.filter((item) => item.name === genreName).map((item) => item.id);
 
@@ -13,11 +13,7 @@ const Genre = () => {
   // e4082d8b6a175161863c83b42482f659
   // https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg
   useEffect(() => {
-    Promise.all([
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=e4082d8b6a175161863c83b42482f659&with_genres=${genreId}&region=US&page=1`),
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=e4082d8b6a175161863c83b42482f659&with_genres=${genreId}&region=US&page=2`),
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=e4082d8b6a175161863c83b42482f659&with_genres=${genreId}&region=US&page=3`),
-    ])
+    Promise.all([fetch(`https://api.themoviedb.org/3/discover/movie?api_key=e4082d8b6a175161863c83b42482f659&with_genres=${genreId}&region=US&page=1`), fetch(`https://api.themoviedb.org/3/discover/movie?api_key=e4082d8b6a175161863c83b42482f659&with_genres=${genreId}&region=US&page=2`), fetch(`https://api.themoviedb.org/3/discover/movie?api_key=e4082d8b6a175161863c83b42482f659&with_genres=${genreId}&region=US&page=3`)])
       .then((res) => Promise.all(res.map((r) => r.json())))
       .then((i) => {
         setArray([...i[0].results, ...i[1].results, ...i[2].results]);
@@ -29,7 +25,7 @@ const Genre = () => {
       <h1 className="page-title">{genreName}</h1>
       {array ? (
         <div className="products-container">
-          <Pagination list={array} />
+          <Pagination list={array} onAdd={onAdd} />
         </div>
       ) : (
         "Loading"

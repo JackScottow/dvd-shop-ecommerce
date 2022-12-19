@@ -66,11 +66,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout basket={cart} />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home onAdd={onAdd} />} />
           <Route path="/basket" element={<Basket basket={cart} plusQty={plusQty} minusQty={minusQty} clearBasket={clearBasket} removeItem={removeItem} />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/popular" element={<Popular />} />
-          <Route path="/genre/:genre" element={<Genre />} />
+          <Route path="/popular" element={<Popular onAdd={onAdd} />} />
+          <Route path="/genre/:genre" element={<Genre onAdd={onAdd} />} />
           <Route path="/movie/:movie" element={<Movie onAdd={onAdd} cart={cart} />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/termsofuse" element={<Terms />} />
