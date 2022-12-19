@@ -30,9 +30,9 @@ const Movie = (props) => {
       {movieDetails ? (
         <div className="product-page">
           <div className="product-image-container">
-            <img src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movieDetails.poster_path}`} alt={movieDetails.title} className="shadow" />
+            <img src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movieDetails.poster_path}`} alt={movieDetails.title} className="shadow-sm" />
           </div>
-          <div className="product-info-container shadow">
+          <div className="product-info-container shadow-sm">
             <h1>{movieDetails.title}</h1>
             <h4>{movieDetails.tagline}</h4>
             <div>{movieDetails.overview}</div>

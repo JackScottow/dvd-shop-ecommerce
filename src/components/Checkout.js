@@ -12,7 +12,7 @@ const Checkout = ({ basket }) => {
     basketQty += item.qty;
   });
   return (
-    <div className="checkout-container shadow">
+    <div className="checkout-container shadow-sm">
       <Form>
         <Row className="mb-3">
           <Form.Group className="mb-3" controlId="formPaymentInfo">

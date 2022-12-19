@@ -21,13 +21,13 @@
   width: 75%;
   place-self: center;
   border: 1px solid black;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 .product-info-container {
   height: fit-content;
   background-color: white;
   padding: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 .product-page h1,
 h4,

@@ -17,6 +17,7 @@ import History from "../Images/Home-Swiper/History.jpg";
 import War from "../Images/Home-Swiper/War.jpg";
 // import required modules
 import { Autoplay } from "swiper";
+import Popular from "./Popular";
 
 const Home = () => {
   return (
@@ -31,7 +32,7 @@ const Home = () => {
           }}
           loop={true}
           modules={[Autoplay]}
-          className="mySwiper shadow"
+          className="mySwiper shadow-sm"
         >
           <SwiperSlide>
             <Link to="/genre/Horror">
@@ -81,9 +82,13 @@ const Home = () => {
               <p>War</p>
             </Link>
           </SwiperSlide>
-        </Swiper>{" "}
-        <p className="home-blurb shadow">Welcome to our DVD sale company! We offer a wide selection of DVDs at discounted prices. From classic movies to the latest blockbusters, we have something for everyone. Our collection is constantly being updated with new titles, so be sure to check back often for the best deals. Shop with us and enjoy the convenience of buying all your favourite movies in one place. Happy shopping!</p>
+        </Swiper>
+        <div className="home-blurb shadow-sm">
+          <h2>Welcome to DVDShop.com! </h2>
+          We offer a wide selection of DVDs at discounted prices. From classic movies to the latest blockbusters, we have something for everyone. Our collection is constantly being updated with new titles, so be sure to check back often for the best deals. Shop with us and enjoy the convenience of buying all your favourite movies in one place. Happy shopping!
+        </div>
       </div>
+      <Popular />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown, Form, Button } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import genreList from "../Data/Genres";
@@ -15,12 +15,12 @@ function Navigation({ basket }) {
 
   return (
     <>
-      <Navbar expand="md" variant="dark" className="colorNav">
+      <Navbar expand="xl" variant="dark" className="colorNav">
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-3" />
         <Navbar.Brand href="/" className="px-3">
           DVDShop.com
         </Navbar.Brand>
-        <Navbar.Brand className="d-xs-block d-sm-block d-md-none d-lg-none mx-3">
+        <Navbar.Brand className="d-xs-block d-sm-block d-md-block d-lg-block d-xl-none mx-3">
           <Nav.Link href={basketQty > 0 ? "/basket" : ""} key="basket">
             <FontAwesomeIcon icon={faCartShopping} />
           </Nav.Link>
@@ -28,11 +28,11 @@ function Navigation({ basket }) {
         <Navbar.Collapse id="basic-navbar-nav">
           Hello
           <Nav className="mx-auto">
-            <Nav.Link href="/" className="px-5" key="home">
+            <Nav.Link href="/" className="px-3" key="home">
               <FontAwesomeIcon icon={faHouseChimney} />
               &nbsp;Home
             </Nav.Link>
-            <NavDropdown className="px-5" bg="dark" variant="dark" href="/genres" id="basic-nav-dropdown" title={[<FontAwesomeIcon icon={faVideo} />, " Movies"]} key="dropdown">
+            <NavDropdown className="px-3" bg="dark" variant="dark" href="/genres" id="basic-nav-dropdown" title={[<FontAwesomeIcon icon={faVideo} />, " Movies"]} key="dropdown">
               <NavDropdown.Item href="/popular" style={{ textAlign: "center" }} key="popular">
                 Popular
               </NavDropdown.Item>
@@ -66,15 +66,26 @@ function Navigation({ basket }) {
                 </Popover>
               }
             >
-              <Nav.Link className="px-5" href={basketQty > 0 ? "/basket" : ""} key="basket">
+              <Nav.Link className="px-3" href={basketQty > 0 ? "/basket" : ""} key="basket">
                 <FontAwesomeIcon icon={faCartShopping} />
                 &nbsp; Basket {basketQty > 0 ? `[${basketQty} - £${basketPrice.toFixed(2)}]` : ""}
               </Nav.Link>
             </OverlayTrigger>
-            <Nav.Link className="px-5" href="/contact" key="contact">
+            <Nav.Link className="px-3" href="/contact" key="contact">
               <FontAwesomeIcon icon={faEnvelope} />
               &nbsp; Contact
             </Nav.Link>
+            <Form className="d-flex mx-3">
+              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
+              <Button
+                variant="outline-light"
+                onClick={(e) => {
+                  console.log(e);
+                }}
+              >
+                Search
+              </Button>
+            </Form>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
