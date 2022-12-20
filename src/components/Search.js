@@ -18,6 +18,7 @@ const Search = ({ onAdd }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm]);
+
   document.title = useParams()
     .searchterm.split(" ")
     .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
