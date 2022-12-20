@@ -12,7 +12,6 @@ a {
 body {
   min-height: 100vh;
   background-color: hsl(210, 20%, 35%);
-  /* background: linear-gradient(315deg, #7db2be8e, #2f748b8e 100%); */
 }
 #root {
   min-height: 100vh;
