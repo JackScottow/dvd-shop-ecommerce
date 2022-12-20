@@ -2,6 +2,10 @@ import React from "react";
 import { Form, Button, Row, Col, Card, ListGroup } from "react-bootstrap";
 import { useState } from "react";
 import "../Css/Checkout.css";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 const Checkout = ({ basket }) => {
   const [sameAddress, setSameAddress] = useState(true);
   const isSameAddress = () => {
@@ -176,10 +180,13 @@ const Checkout = ({ basket }) => {
         </Card.Header>
         <Card.Title className="mx-3">
           <ListGroup className="list-group-flush">
-            {basket.forEach((item) => {
-              <ListGroup.Item>
-                <div>{item.title} </div>
-              </ListGroup.Item>;
+            {basket.map((item) => {
+              return (
+                <ListGroup.Item>
+                  <div>{item.title} </div>
+                  <div>{item.qty} x £2.99 </div>
+                </ListGroup.Item>
+              );
             })}
             <ListGroup.Item>
               <div> Products: </div>
@@ -193,7 +200,14 @@ const Checkout = ({ basket }) => {
             </ListGroup.Item>
           </ListGroup>
           <div className="text-center">
-            <Button variant="primary">Complete Order!</Button>
+            <Link to="/basket">
+              <Button variant="danger" className="mx-1">
+                <FontAwesomeIcon icon={faArrowLeft} /> Back to basket
+              </Button>
+            </Link>
+            <Button variant="success" className="mx-1">
+              Complete Order!
+            </Button>
           </div>
         </Card.Title>
       </Card>
