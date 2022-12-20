@@ -5,7 +5,12 @@ import Popover from "react-bootstrap/Popover";
 import genreList from "../Data/Genres";
 import "../Css/Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouseChimney, faCartShopping, faVideo, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHouseChimney,
+  faCartShopping,
+  faVideo,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 function Navigation({ basket }) {
   let basketQty = 0;
@@ -14,14 +19,13 @@ function Navigation({ basket }) {
     basketQty += item.qty;
     basketPrice += item.qty * item.price;
   });
-  const [refresh, setRefresh] = useState(false);
 
   const navigate = useNavigate();
   const Search = (e) => {
     if (e.target.previousSibling.value !== "") {
       navigate(`search/${e.target.previousSibling.value}`);
+      navigate(0);
     }
-    setRefresh(!refresh);
   };
   return (
     <>
@@ -32,7 +36,8 @@ function Navigation({ basket }) {
         </Navbar.Brand>
         <Navbar.Brand className="d-xs-block d-sm-block d-md-block d-lg-block d-xl-none mx-3">
           <Nav.Link href={basketQty > 0 ? "/basket" : ""} key="basket">
-            <FontAwesomeIcon icon={faCartShopping} /> {basketQty > 0 ? `[ ${basketQty} ]` : ""}
+            <FontAwesomeIcon icon={faCartShopping} />{" "}
+            {basketQty > 0 ? `[ ${basketQty} ]` : ""}
           </Nav.Link>
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -42,12 +47,29 @@ function Navigation({ basket }) {
               <FontAwesomeIcon icon={faHouseChimney} />
               &nbsp;Home
             </Nav.Link>
-            <NavDropdown className="px-3" bg="dark" variant="dark" href="/genres" id="basic-nav-dropdown" title={[<FontAwesomeIcon icon={faVideo} />, " Movies"]} key="dropdown">
-              <NavDropdown.Item href="/popular" style={{ textAlign: "center" }} key="popular">
+            <NavDropdown
+              className="px-3"
+              bg="dark"
+              variant="dark"
+              href="/genres"
+              id="basic-nav-dropdown"
+              title={[<FontAwesomeIcon icon={faVideo} />, " Movies"]}
+              key="dropdown"
+            >
+              <NavDropdown.Item
+                href="/popular"
+                style={{ textAlign: "center" }}
+                key="popular"
+              >
                 Popular
               </NavDropdown.Item>
               {genreList.map((genre) => (
-                <NavDropdown.Item className="p-0" href={`/genre/${genre.name}`} style={{ height: "max-content", textAlign: "center" }} key={genre.name}>
+                <NavDropdown.Item
+                  className="p-0"
+                  href={`/genre/${genre.name}`}
+                  style={{ height: "max-content", textAlign: "center" }}
+                  key={genre.name}
+                >
                   {genre.name}
                 </NavDropdown.Item>
               ))}
@@ -71,14 +93,23 @@ function Navigation({ basket }) {
                     ) : (
                       <div className="basket-popover">Basket is empty</div>
                     )}
-                    <div className="basket-popover-total">Total - £{basketPrice.toFixed(2)}</div>
+                    <div className="basket-popover-total">
+                      Total - £{basketPrice.toFixed(2)}
+                    </div>
                   </Popover.Body>
                 </Popover>
               }
             >
-              <Nav.Link className="px-3" href={basketQty > 0 ? "/basket" : ""} key="basket">
+              <Nav.Link
+                className="px-3"
+                href={basketQty > 0 ? "/basket" : ""}
+                key="basket"
+              >
                 <FontAwesomeIcon icon={faCartShopping} />
-                &nbsp; Basket {basketQty > 0 ? `[${basketQty} - £${basketPrice.toFixed(2)}]` : ""}
+                &nbsp; Basket{" "}
+                {basketQty > 0
+                  ? `[${basketQty} - £${basketPrice.toFixed(2)}]`
+                  : ""}
               </Nav.Link>
             </OverlayTrigger>
             <Nav.Link className="px-3" href="/contact" key="contact">
@@ -86,7 +117,13 @@ function Navigation({ basket }) {
               &nbsp; Contact
             </Nav.Link>
             <Form className="d-flex mx-3">
-              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" id="searchQ" />
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                id="searchQ"
+              />
               <Button variant="outline-light" onClick={(e) => Search(e)}>
                 Search
               </Button>
