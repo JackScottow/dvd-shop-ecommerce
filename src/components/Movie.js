@@ -25,7 +25,7 @@ const Movie = ({ onAdd }) => {
   if (movieDetails) {
     document.title = movieDetails.title;
   }
-  console.log(movieDetails);
+
   return (
     <div className="movie-container">
       {movieDetails ? (
