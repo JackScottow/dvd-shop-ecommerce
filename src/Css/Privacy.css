@@ -4,6 +4,8 @@
   height: fit-content;
   background-color: white;
   border-radius: 0.25rem;
+  margin: 0.5rem auto;
+  width: 90%;
 }
 
 h1 {
@@ -14,4 +16,13 @@ h1 {
 .container > * {
   margin: 2rem 7rem 0 7rem;
   text-align: start;
+}
+@media (max-width: 768px) {
+  .container {
+    padding-bottom: 10vh;
+  }
+  .container > * {
+    margin: 1rem;
+    text-align: start;
+  }
 }
