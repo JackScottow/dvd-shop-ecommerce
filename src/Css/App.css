@@ -16,13 +16,11 @@ body {
   min-height: 100vh;
 }
 
-/* .btn:hover {
+.btn:hover {
   transform: scale(1.05);
-  transition: 0.1s;
-} */
+}
 .btn:active {
-  transform: scale(0.9);
-  transition: 0.1s;
+  transform: scale(1);
 }
 
 @media (max-width: 1366px) {
