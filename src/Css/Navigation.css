@@ -45,3 +45,8 @@
 .nav-item .dropdown-item:hover {
   background: rgb(71, 79, 87);
 }
+@media (max-width: 1200px) {
+  .navbar {
+    --bs-navbar-padding-y: 0;
+  }
+}

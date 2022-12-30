@@ -32,7 +32,7 @@ function Navigation({ basket }) {
   };
   return (
     <>
-      <Navbar expand="xl" variant="dark" className="colorNav">
+      <Navbar expand="xl" variant="dark" className="colorNav" fixed="top" style={{ position: "sticky" }}>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-3" />
         <Navbar.Brand href="/" className="px-3">
           DVDShop.com
