@@ -91,9 +91,17 @@ function Navigation({ basket }) {
               <Nav.Link className="px-3" href={basketQty > 0 ? "/basket" : ""} key="basket">
                 <FontAwesomeIcon icon={faCartShopping} />
                 &nbsp; Basket{" "}
-                <TextTransition springConfig={presets.gentle} inline>
-                  {basketQty > 0 ? `[${basketQty} - £${basketPrice.toFixed(2)}]` : ""}
-                </TextTransition>
+                {basketQty > 0 ? (
+                  <>
+                    [
+                    <TextTransition springConfig={presets.gentle} inline>
+                      {basketQty} - £{basketPrice.toFixed(2)}
+                    </TextTransition>
+                    ]
+                  </>
+                ) : (
+                  ""
+                )}
               </Nav.Link>
             </OverlayTrigger>
             <Nav.Link className="px-3" href="/contact" key="contact">
