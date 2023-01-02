@@ -6,6 +6,7 @@ import genreList from "../Data/Genres";
 import "../Css/Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouseChimney, faCartShopping, faVideo, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import TextTransition, { presets } from "react-text-transition";
 
 function Navigation({ basket }) {
   let basketQty = 0;
@@ -39,7 +40,11 @@ function Navigation({ basket }) {
         </Navbar.Brand>
         <Navbar.Brand className="d-xs-block d-sm-block d-md-block d-lg-block d-xl-none mx-3">
           <Nav.Link href={basketQty > 0 ? "/basket" : ""} key="basket">
-            <FontAwesomeIcon icon={faCartShopping} /> {basketQty > 0 ? `[ ${basketQty} ]` : ""}
+            <FontAwesomeIcon icon={faCartShopping} />
+            &nbsp;
+            <TextTransition springConfig={presets.gentle} inline>
+              {basketQty > 0 ? `${basketQty}` : ""}
+            </TextTransition>
           </Nav.Link>
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -85,7 +90,10 @@ function Navigation({ basket }) {
             >
               <Nav.Link className="px-3" href={basketQty > 0 ? "/basket" : ""} key="basket">
                 <FontAwesomeIcon icon={faCartShopping} />
-                &nbsp; Basket {basketQty > 0 ? `[${basketQty} - £${basketPrice.toFixed(2)}]` : ""}
+                &nbsp; Basket{" "}
+                <TextTransition springConfig={presets.gentle} inline>
+                  {basketQty > 0 ? `[${basketQty} - £${basketPrice.toFixed(2)}]` : ""}
+                </TextTransition>
               </Nav.Link>
             </OverlayTrigger>
             <Nav.Link className="px-3" href="/contact" key="contact">
