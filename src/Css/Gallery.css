@@ -56,8 +56,9 @@ a:hover {
 
 @media (max-width: 1366px) {
   .products-container {
-    width: 80%;
+    width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
   }
   .card h4 {
     font-size: 1.125rem;
