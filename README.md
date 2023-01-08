@@ -3,6 +3,7 @@
 An e-commerce frontend built with React, React Router & Bootstrap taking data from _"The Movie Database"_ API.
 
 [Demo here](https://jackscottow.netlify.app/)
+
 ![Screenshot](screenshot.png)
 
 ## Tech Stack
