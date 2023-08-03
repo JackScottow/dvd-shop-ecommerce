@@ -19,3 +19,5 @@ An e-commerce frontend built with React, React Router & Bootstrap taking data fr
 
 - Interactive shopping cart stored in local data for persistance
 - Fully responsive on all screen sizes
+- Data fetched from _"The Movie Database"_ for multiple categories
+- Automatic pagination on scroll
