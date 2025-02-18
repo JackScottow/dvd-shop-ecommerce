@@ -2,7 +2,7 @@
 
 A modern e-commerce platform for movie enthusiasts, built with React.
 
-![DVD Shop Screenshot](screenshot.png)
+![DVD Shop Screenshot](dvdshop.png)
 
 ## Live Demo
 
