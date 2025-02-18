@@ -3,33 +3,65 @@ import React from "react";
 
 const Privacy = () => {
   document.title = "Privacy Policy";
+
   return (
-    <div className="container">
-      <h1>Privacy Policy</h1>
-      <p>
-        At CompanyName, we are committed to protecting the privacy of our customers and users of our website. This privacy policy explains what personal information we collect and how we use it.
-        <br />
-        <br />
-        We collect personal information when you create an account, place an order, or interact with our website in other ways. This information may include your name, email address, shipping and billing address, payment information, and any other information you choose to provide.
-        <br />
-        <br />
-        We use this personal information to process your orders, provide customer support, and improve your shopping experience. We may also use it to send you marketing communications, but you can opt out of these at any time.
-        <br />
-        <br />
-        We take appropriate measures to protect the security of your personal information. However, no website can guarantee the absolute security of your data, so please be cautious about providing personal information online.
-        <br />
-        <br />
-        We may share your personal information with third-party service providers who assist us in operating our website and conducting our business, such as payment processors and fulfillment centers. These service providers are contractually obligated to protect the confidentiality and security of your personal information.
-        <br />
-        <br />
-        We may also disclose your personal information if required to do so by law or in response to a valid request from a law enforcement or government agency.
-        <br />
-        <br />
-        We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. We will post any changes on this page and encourage you to review our privacy policy periodically.
-        <br />
-        <br />
-        If you have any questions or concerns about our privacy policy or the use of your personal information, please contact us at [insert contact information].
-      </p>
+    <div className="privacy-container">
+      <div className="privacy-header">
+        <h1>Privacy Policy</h1>
+      </div>
+
+      <div className="privacy-section">
+        <h2>Introduction</h2>
+        <p>At DVDShop.com, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+      </div>
+
+      <div className="privacy-section">
+        <h2>Information We Collect</h2>
+        <h3>Personal Data</h3>
+        <p>We may collect personal identification information from users in various ways, including, but not limited to:</p>
+        <ul>
+          <li>Name and contact information</li>
+          <li>Billing and shipping address</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Payment details</li>
+        </ul>
+
+        <h3>Usage Data</h3>
+        <p>We may also collect information about how the website is accessed and used. This usage data may include:</p>
+        <ul>
+          <li>Your computer's IP address</li>
+          <li>Browser type and version</li>
+          <li>Pages you visit</li>
+          <li>Time and date of your visit</li>
+          <li>Time spent on pages</li>
+        </ul>
+      </div>
+
+      <div className="privacy-section">
+        <h2>How We Use Your Information</h2>
+        <p>We use the collected data for various purposes:</p>
+        <ul>
+          <li>To process and fulfill your orders</li>
+          <li>To send you order confirmations and updates</li>
+          <li>To provide customer support</li>
+          <li>To send you marketing and promotional communications (with your consent)</li>
+          <li>To improve our website and services</li>
+          <li>To protect against fraudulent transactions</li>
+        </ul>
+      </div>
+
+      <div className="privacy-section">
+        <h2>Security</h2>
+        <p>We implement appropriate technical and organizational security measures to protect your personal information. However, please note that no method of transmission over the internet or electronic storage is 100% secure.</p>
+      </div>
+
+      <div className="privacy-section">
+        <h2>Contact Us</h2>
+        <p>
+          If you have any questions about this Privacy Policy, please contact us at <a href="mailto:privacy@dvdshop.com">privacy@dvdshop.com</a>
+        </p>
+      </div>
     </div>
   );
 };

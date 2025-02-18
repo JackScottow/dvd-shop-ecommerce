@@ -1,36 +1,24 @@
-import "../Css/Footer.css";
 import React from "react";
-import { faGithub, faInstagram, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+import "../Css/Footer.css";
+
 const Footer = () => {
   return (
     <footer>
-      <ul>
-        <li>
-          <a href="https://github.com/JackScottow">
-            <FontAwesomeIcon icon={faGithub} /> <div className="footer-text">GitHub</div>
-          </a>
-        </li>
-        <li>
-          <a href="https://facebook.com">
-            <FontAwesomeIcon icon={faFacebook} /> <div className="footer-text">Facebook</div>
-          </a>
-        </li>
-        <li>
-          <a href="https://instagram.com">
-            <FontAwesomeIcon icon={faInstagram} /> <div className="footer-text">Instagram</div>
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com">
-            <FontAwesomeIcon icon={faTwitter} /> <div className="footer-text">Twitter</div>
-          </a>
-        </li>
-      </ul>
-      <div>
-        <a href="/privacy">Privacy Policy </a> | <a href="/termsofuse">Terms of Use</a>
+      <div className="footer-links">
+        <ul className="d-flex justify-content-center list-unstyled">
+          <li>
+            <Link to="/privacy">Privacy Policy</Link>
+          </li>
+          <li>
+            <Link to="/terms">Terms of Use</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
       </div>
-      <div>Copyright 2022</div>
+      <p className="footer-copyright text-center">© 2024 DVDShop.com. All rights reserved.</p>
     </footer>
   );
 };

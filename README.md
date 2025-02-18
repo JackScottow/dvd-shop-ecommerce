@@ -4,7 +4,7 @@ An e-commerce frontend built with React, React Router & Bootstrap taking data fr
 
 [Demo here](https://jackscottow.netlify.app/)
 
-![Screenshot](screenshot.png)
+![Screenshot](dvdshop.png)
 
 ## Tech Stack
 

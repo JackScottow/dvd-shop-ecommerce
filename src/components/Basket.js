@@ -2,7 +2,7 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 import "../Css/Basket.css";
 import { Button } from "react-bootstrap";
-import { faTrashCan, faCreditCard } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan, faCreditCard, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NoImage from "../Images/NoImageSmall.jpg";
 
@@ -11,58 +11,60 @@ const Basket = ({ basket, plusQty, minusQty, clearBasket, removeItem }) => {
   basket.forEach((item) => {
     basketQty += item.qty;
   });
+
   document.title = "Basket";
+
+  if (basket.length === 0) {
+    return (
+      <div className="basket-container">
+        <div className="empty-cart-message">Your shopping cart is empty</div>
+      </div>
+    );
+  }
+
   return (
     <div className="basket-container">
-      {basket.length > 0 ? (
-        basket.map((item, i) => (
-          <div className="basket-item shadow-sm" key={item.id}>
-            <div className="basket-item-product-details">
-              <img src={item.image ? `https://www.themoviedb.org/t/p/w92${item.image}` : NoImage} alt={item.title} />
-              <Link to={`/movie/${item.title.split(" ").join("")}`} key={item.id} state={item.id} className="basket-item-link">
-                {item.title}
-              </Link>
-            </div>
-            <div className="basket-item-cost">
-              Price £{item.price}
-              <div className="basket-adjust">
-                <Button variant="danger" onClick={() => minusQty(item)} className="basket-adjust-button">
-                  -
-                </Button>
-                <input type="text" value={item.qty} readonly className="qty" />
-                <Button variant="success" onClick={() => plusQty(item)} className="basket-adjust-button">
-                  +
-                </Button>
-              </div>
-              <div>Total £{(item.qty * item.price).toFixed(2)}</div>
-              <div>
-                <Button variant="danger" onClick={() => removeItem(item)} className="basket-adjust-button">
-                  <FontAwesomeIcon icon={faTrashCan} />
-                </Button>
-              </div>
-            </div>
+      {basket.map((item) => (
+        <div className="basket-item shadow-sm" key={item.id}>
+          <div className="basket-item-product-details">
+            <img src={item.image ? `https://www.themoviedb.org/t/p/w92${item.image}` : NoImage} alt={item.title} />
+            <Link to={`/movie/${item.title.split(" ").join("")}`} state={item.id} className="basket-item-link">
+              {item.title}
+            </Link>
           </div>
-        ))
-      ) : (
-        <p style={{ textAlign: "center" }}>Cart is empty</p>
-      )}
-      {basket.length > 0 ? (
-        <div className="basket-total shadow-sm">
-          <Button variant="danger" onClick={() => clearBasket()} className="basket-button">
-            <FontAwesomeIcon icon={faTrashCan} />
-            {`Empty Basket`}
-          </Button>
-          <Button href="/checkout" variant="success" className="basket-button">
-            <FontAwesomeIcon icon={faCreditCard} />
-            {`Checkout`}
-          </Button>
-          <p>
-            Total <span className="total-cost">£{(basketQty * 2.99).toFixed(2)}</span>
-          </p>
+
+          <div className="basket-item-cost">
+            <div>Unit Price: £{item.price.toFixed(2)}</div>
+            <div className="basket-adjust">
+              <Button variant="outline-danger" onClick={() => minusQty(item)} className="basket-adjust-button">
+                <FontAwesomeIcon icon={faMinus} />
+              </Button>
+              <input type="text" value={item.qty} readOnly className="qty" />
+              <Button variant="outline-success" onClick={() => plusQty(item)} className="basket-adjust-button">
+                <FontAwesomeIcon icon={faPlus} />
+              </Button>
+            </div>
+            <div>Total: £{(item.qty * item.price).toFixed(2)}</div>
+            <Button variant="outline-danger" onClick={() => removeItem(item)} className="basket-adjust-button">
+              <FontAwesomeIcon icon={faTrashCan} />
+            </Button>
+          </div>
         </div>
-      ) : (
-        ""
-      )}
+      ))}
+
+      <div className="basket-total shadow-sm">
+        <Button variant="outline-danger" onClick={clearBasket} className="basket-button">
+          <FontAwesomeIcon icon={faTrashCan} />
+          Empty Basket
+        </Button>
+        <Button as={Link} to="/checkout" variant="success" className="basket-button">
+          <FontAwesomeIcon icon={faCreditCard} />
+          Checkout
+        </Button>
+        <div>
+          Total: <span className="total-cost">£{(basketQty * 2.99).toFixed(2)}</span>
+        </div>
+      </div>
     </div>
   );
 };

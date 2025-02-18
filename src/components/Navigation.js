@@ -48,7 +48,6 @@ function Navigation({ basket }) {
           </Nav.Link>
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
-          Hello
           <Nav className="mx-auto">
             <Nav.Link href="/" className="px-3" key="home">
               <FontAwesomeIcon icon={faHouseChimney} />
@@ -86,8 +85,7 @@ function Navigation({ basket }) {
                     <div className="basket-popover-total">Total - £{basketPrice.toFixed(2)}</div>
                   </Popover.Body>
                 </Popover>
-              }
-            >
+              }>
               <Nav.Link className="px-3" href={basketQty > 0 ? "/basket" : ""} key="basket">
                 <FontAwesomeIcon icon={faCartShopping} />
                 &nbsp; Basket{" "}

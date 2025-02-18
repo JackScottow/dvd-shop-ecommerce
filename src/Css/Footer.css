@@ -1,52 +1,86 @@
 footer {
-  background-color: #212529;
+  background-color: var(--surface);
   width: 100%;
-  color: #ffffff8c;
-  z-index: 1;
+  padding: 12px 0 8px;
+  color: var(--text-primary);
   position: fixed;
   bottom: 0;
-  height: fit-content;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  z-index: 100;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
+
 footer a {
-  color: #ffffff8c;
-  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
 }
 
 footer a:hover {
-  color: #ffffffd8;
-  text-decoration: underline;
-}
-footer ul {
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0;
-}
-footer ul li {
-  padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
+  color: var(--text-primary);
 }
 
-@media only screen and (max-width: 1200px) {
-  /*Tablets [601px -> 1200px]*/
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 8px;
+  padding: 0;
 }
-@media only screen and (max-width: 600px) {
-  /*Big smartphones [426px -> 600px]*/
+
+footer ul li {
+  list-style-type: none;
+  text-align: center;
 }
+
+footer .social-icon {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+footer li:hover .social-icon {
+  transform: translateY(-2px);
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.footer-links {
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
 @media only screen and (max-width: 425px) {
+  footer {
+    padding: 16px 0 12px;
+  }
+
+  footer ul {
+    gap: 24px;
+  }
+
   .footer-text {
     display: none;
   }
 
-  li .svg-inline--fa {
-    transform: scale(1.25);
+  footer .social-icon {
+    font-size: 1.25rem;
   }
-  /*Small smartphones [325px -> 425px]*/
+
+  footer li:hover .social-icon {
+    transform: translateY(-1px);
+  }
 }

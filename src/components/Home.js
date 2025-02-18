@@ -8,6 +8,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "../Css/Home.css";
+
+// Import images
 import Horror from "../Images/Home-Swiper/Horror.jpg";
 import Romance from "../Images/Home-Swiper/Romance.jpg";
 import Music from "../Images/Home-Swiper/Music.jpg";
@@ -17,77 +19,49 @@ import Animation from "../Images/Home-Swiper/Animation.jpg";
 import History from "../Images/Home-Swiper/History.jpg";
 import War from "../Images/Home-Swiper/War.jpg";
 
-// import required modules
-import { Autoplay } from "swiper";
+// Import required modules
+import { Autoplay, EffectFade } from "swiper";
 import Popular from "./Popular";
 
 const Home = ({ onAdd }) => {
+  const genres = [
+    { name: "Horror", image: Horror },
+    { name: "Romance", image: Romance },
+    { name: "Music", image: Music },
+    { name: "Crime", image: Crime },
+    { name: "Fantasy", image: Fantasy },
+    { name: "Animation", image: Animation },
+    { name: "History", image: History },
+    { name: "War", image: War },
+  ];
+
   return (
     <>
       <div className="home-page-content-container">
         <Swiper
-          spaceBetween={30}
+          spaceBetween={0}
           centeredSlides={true}
           autoplay={{
-            delay: 2500,
+            delay: 3000,
             disableOnInteraction: false,
           }}
+          effect={"fade"}
           loop={true}
-          modules={[Autoplay]}
-          className="mySwiper shadow-sm"
-        >
-          <SwiperSlide>
-            <Link to="/genre/Horror">
-              <img src={Horror} alt="Horror" className="swiper-img" />
-              <p>Horror</p>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/genre/Romance">
-              <img src={Romance} alt="Romance" className="swiper-img" />
-              <p>Romance</p>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/genre/Music">
-              <img src={Music} alt="Music" className="swiper-img" />
-              <p>Music</p>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/genre/Crime">
-              <img src={Crime} alt="Crime" className="swiper-img" />
-              <p>Crime</p>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/genre/Fantasy">
-              <img src={Fantasy} alt="Fantasy" className="swiper-img" />
-              <p>Fantasy</p>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/genre/Animation">
-              <img src={Animation} alt="Animation" className="swiper-img" />
-              <p>Animation</p>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/genre/History">
-              <img src={History} alt="History" className="swiper-img" />
-              <p>History</p>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/genre/War">
-              <img src={War} alt="War" className="swiper-img" />
-              <p>War</p>
-            </Link>
-          </SwiperSlide>
+          modules={[Autoplay, EffectFade]}
+          className="mySwiper">
+          {genres.map((genre) => (
+            <SwiperSlide key={genre.name}>
+              <Link to={`/genre/${genre.name}`}>
+                <img src={genre.image} alt={genre.name} className="swiper-img" />
+                <p>{genre.name}</p>
+              </Link>
+            </SwiperSlide>
+          ))}
         </Swiper>
+
         <div className="home-blurb shadow-sm">
-          <h2>Welcome to DVDShop.com! </h2>
-          We offer a wide selection of DVDs at discounted prices. From classic movies to the latest blockbusters, we have something for everyone. Our collection is constantly being updated with new titles, so be sure to check back often for the best deals. Shop with us and enjoy the convenience of buying all your favourite movies in one place. Happy shopping!
+          <h2>Welcome to DVDShop.com</h2>
+          <p>Discover our extensive collection of DVDs at unbeatable prices. From timeless classics to the latest blockbusters, we've curated a selection that caters to every taste. Our inventory is constantly updated with new releases, ensuring you always have access to the best entertainment. Experience the convenience of shopping for all your favorite movies in one place, backed by our commitment to quality and customer satisfaction. Start exploring our collection today!</p>
         </div>
       </div>
       <Popular onAdd={onAdd} />

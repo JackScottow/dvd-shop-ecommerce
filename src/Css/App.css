@@ -1,26 +1,77 @@
+:root {
+  --primary: #1e3a8a; /* Deep navy blue */
+  --primary-dark: #172554; /* Darker navy */
+  --secondary: #334155; /* Dark slate */
+  --accent: #2563eb; /* Accent blue */
+  --background: #0f172a; /* Very dark blue background */
+  --surface: #1e293b; /* Slightly lighter surface color */
+  --text-primary: #e2e8f0; /* Light gray text */
+  --text-secondary: #94a3b8; /* Muted gray text */
+  --white: #ffffff;
+  --error: #dc2626; /* Darker red */
+  --success: #16a34a; /* Darker green */
+  --warning: #d97706; /* Darker orange */
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
 }
-a {
-  text-decoration: none;
-}
 
 body {
   min-height: 100vh;
-  background-color: hsl(210, 20%, 35%);
+  background-color: var(--background);
+  padding-bottom: 120px; /* Add padding to account for footer height */
+  color: var(--text-primary);
 }
+
 #root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
 }
 
 .btn:hover {
   transform: scale(1.05);
 }
+
 .btn:active {
   transform: scale(1);
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.btn-success {
+  background-color: var(--success) !important;
+  border-color: var(--success) !important;
+}
+
+.btn-danger {
+  background-color: var(--error) !important;
+  border-color: var(--error) !important;
+}
+
+.btn-warning {
+  background-color: var(--warning) !important;
+  border-color: var(--warning) !important;
 }
 
 @media (max-width: 1366px) {

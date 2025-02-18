@@ -1,31 +1,147 @@
-.swiper-slide {
-  height: 80%;
-}
-.swiper-img {
-  width: 100vw;
-  object-fit: fill;
+.home-page-content-container {
+  padding: 0 0 10vh;
 }
 
-.swiper-wrapper {
-  height: 20vh;
+/* Swiper styles */
+.swiper {
+  margin-bottom: 16px;
 }
+
+.swiper-slide {
+  height: 30vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover .swiper-img {
+  transform: scale(1.05);
+}
+
 .swiper-slide p {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 3.5rem;
+  font-weight: 700;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  margin: 0;
+  transition: transform 0.3s ease;
 }
 
+.swiper-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+  transition: background 0.3s ease;
+}
+
+.swiper-slide:hover::after {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+}
+
+.swiper-slide:hover p {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Welcome section styles */
 .home-blurb {
-  background-color: white;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  height: 100%;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  border-radius: 8px;
+  padding: 1.5rem 2.5rem;
+  margin: 1rem auto 2.5rem;
+  max-width: 1200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-blurb h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
   text-align: center;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.home-blurb h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.home-blurb p {
+  color: #2d3748;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    height: 30vh;
+  }
+
+  .swiper-slide p {
+    font-size: 2.5rem;
+  }
+
+  .home-blurb {
+    padding: 2rem;
+    margin: 1.5rem 1rem;
+  }
+
+  .home-blurb h2 {
+    font-size: 2rem;
+  }
+
+  .home-blurb p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-slide {
+    height: 25vh;
+  }
+
+  .swiper-slide p {
+    font-size: 2rem;
+  }
+
+  .home-blurb {
+    padding: 1.25rem;
+  }
+
+  .home-blurb h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Add styles for Popular Movies section */
+.popular-section h1 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  opacity: 0.9;
 }

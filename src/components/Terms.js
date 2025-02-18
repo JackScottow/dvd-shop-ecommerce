@@ -3,24 +3,70 @@ import React from "react";
 
 const Terms = () => {
   document.title = "Terms of Use";
+
   return (
-    <div className="container">
-      <h1>Terms of Use</h1>
-      <p>By using our website, you agree to the following terms of use:</p>
-      <ul>
-        <li>You must be at least 18 years old to use this website.</li>
-        <li>You are responsible for maintaining the confidentiality of your account and password.</li>
-        <li>You may not use our website for any illegal or unauthorized purpose.</li>
-        <li>We reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders in our sole discretion.</li>
-        <li>You are responsible for all activities that occur under your account.</li>
-        <li>We do not warrant that the website will be uninterrupted or error-free.</li>
-        <li>We reserve the right to modify or discontinue the website without notice at any time.</li>
-        <li>We are not responsible for any third-party websites or content that may be linked to or from our website.</li>
-        <li>All products and services are subject to change without notice.</li>
-        <li>All prices are subject to change without notice.</li>
-        <li>We do not guarantee the accuracy or completeness of any information on our website.</li>
-      </ul>
-      <p>By using our website, you agree to be bound by these terms of use. We reserve the right to update or change these terms of use at any time without notice. Your continued use of our website constitutes your acceptance of any changes to these terms of use.</p>
+    <div className="terms-container">
+      <div className="terms-header">
+        <h1>Terms of Use</h1>
+      </div>
+
+      <div className="terms-section">
+        <h2>Welcome to DVDShop.com</h2>
+        <p>These terms and conditions outline the rules and regulations for the use of DVDShop.com's website. By accessing this website, we assume you accept these terms and conditions in full.</p>
+      </div>
+
+      <div className="terms-section">
+        <h2>License to Use</h2>
+        <p>Unless otherwise stated, DVDShop.com and/or its licensors own the intellectual property rights for all material on DVDShop.com. All intellectual property rights are reserved.</p>
+
+        <div className="terms-highlight">
+          <h3>You must not:</h3>
+          <ul>
+            <li>Republish material from DVDShop.com</li>
+            <li>Sell, rent, or sub-license material from DVDShop.com</li>
+            <li>Reproduce, duplicate, or copy material from DVDShop.com</li>
+            <li>Redistribute content from DVDShop.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="terms-section">
+        <h2>Product Information</h2>
+        <p>We strive to provide accurate product information and pricing. However, pricing and availability information is subject to change without notice.</p>
+        <h3>Pricing and Payment</h3>
+        <ul>
+          <li>All prices are listed in GBP (£)</li>
+          <li>Prices are subject to change without notice</li>
+          <li>We accept major credit cards and PayPal</li>
+          <li>Payment is required at time of purchase</li>
+        </ul>
+      </div>
+
+      <div className="terms-section">
+        <h2>Shipping and Delivery</h2>
+        <p>We aim to process and ship orders within 1-2 business days. Delivery times may vary depending on your location and chosen shipping method.</p>
+        <h3>Delivery Options</h3>
+        <ul>
+          <li>Standard Delivery (3-5 business days)</li>
+          <li>Express Delivery (1-2 business days)</li>
+          <li>International Shipping (7-14 business days)</li>
+        </ul>
+      </div>
+
+      <div className="terms-section">
+        <h2>Returns and Refunds</h2>
+        <p>We accept returns within 30 days of purchase. Items must be unused and in their original packaging.</p>
+        <div className="terms-highlight">
+          <p>Please note that shipping costs for returns are the responsibility of the customer unless the item received was defective or incorrect.</p>
+        </div>
+      </div>
+
+      <div className="terms-section">
+        <h2>Contact Information</h2>
+        <p>
+          If you have any questions about these Terms of Use, please contact us at <a href="mailto:terms@dvdshop.com">terms@dvdshop.com</a>
+        </p>
+      </div>
     </div>
   );
 };
