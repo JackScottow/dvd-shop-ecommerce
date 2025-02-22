@@ -74,7 +74,7 @@ function App() {
           <Route path="/genre/:genre" element={<Genre onAdd={onAdd} />} />
           <Route path="/movie/:movie" element={<Movie onAdd={onAdd} cart={cart} />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/termsofuse" element={<Terms />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/checkout" element={<Checkout basket={cart} />} />
           <Route path="/search/:searchterm" element={<Search onAdd={onAdd} />} />
         </Route>
