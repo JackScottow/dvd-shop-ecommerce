@@ -1,216 +1,135 @@
-import React from "react";
-import { Form, Button, Row, Col, Card, ListGroup } from "react-bootstrap";
-import { useState } from "react";
-import "../Css/Checkout.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faCreditCard, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import "../Css/Checkout.css";
 
 const Checkout = ({ basket }) => {
-  const [sameAddress, setSameAddress] = useState(true);
-  const isSameAddress = () => {
-    setSameAddress(!sameAddress);
+  const navigate = useNavigate();
+  const [validated, setValidated] = useState(false);
+
+  let total = basket.reduce((acc, item) => acc + item.qty * item.price, 0);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    } else {
+      // Handle successful checkout
+      alert("Order placed successfully!");
+      navigate("/");
+    }
+
+    setValidated(true);
   };
-  let basketQty = 0;
-  basket.forEach((item) => {
-    basketQty += item.qty;
-  });
 
   document.title = "Checkout";
+
   return (
-    <div className="checkout-container shadow-sm">
-      <Form>
-        <Row className="mb-3">
-          <Form.Group className="mb-3" controlId="formPaymentInfo">
-            <Form.Label>Payment Info</Form.Label>
-            <Form.Control placeholder="Full Name" className="mb-1" />
-            <Form.Control placeholder="Card Number" className="mb-3" />
-            <Row>
-              <Col>
-                <Form.Label>Expiry</Form.Label>
-              </Col>
-              <Col></Col>
-              <Col>
-                <Form.Label>Security</Form.Label>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Form.Control placeholder="MM" className="mb-1" />
-              </Col>
-              <Col>
-                <Form.Control placeholder="YYYY" className="mb-1" />
-              </Col>
-              <Col>
-                <Form.Control placeholder="X X X" className="mb-1" />
-              </Col>
-            </Row>
-          </Form.Group>
-        </Row>
+    <div className="checkout-container">
+      <div className="checkout-header">
+        <h1>Checkout</h1>
+      </div>
 
-        <Row className="mb-3">
-          <Form.Group className="mb-3" controlId="formGridAddress1">
-            <Form.Label>Billing Address</Form.Label>
-            <Form.Control placeholder="Address Line 1" className="mb-1" />
-            <Form.Control placeholder="Address Line 2 (Optional)" className="mb-1" />
-            <Form.Control placeholder="Town / City" className="mb-1" />
-            <Form.Select defaultValue="County" className="mb-1">
-              <option hidden>County</option>
-              <option>Avon</option>
-              <option>Berkshire</option>
-              <option>Bedfordshire</option>
-              <option>Buckinghamshire</option>
-              <option>Cambridgeshire</option>
-              <option>Cheshire</option>
-              <option>Cornwall</option>
-              <option>Cumbria</option>
-              <option>Derbyshire</option>
-              <option>Devon</option>
-              <option>Dorset</option>
-              <option>Durham</option>
-              <option>Essex</option>
-              <option>Gloucestershire</option>
-              <option>Greater London</option>
-              <option>Hampshire</option>
-              <option>Herefordshire</option>
-              <option>Hertfordshire</option>
-              <option>Isle of Wight</option>
-              <option>Kent</option>
-              <option>Lancashire</option>
-              <option>Leicestershire</option>
-              <option>Lincolnshire</option>
-              <option>Merseyside</option>
-              <option>Norfolk</option>
-              <option>Northamptonshire</option>
-              <option>Northumberland</option>
-              <option>Nottinghamshire</option>
-              <option>Oxfordshire</option>
-              <option>Rutland</option>
-              <option>Schools</option>
-              <option>Shropshire</option>
-              <option>Somerset</option>
-              <option>Staffordshire</option>
-              <option>Suffolk</option>
-              <option>Surrey</option>
-              <option>Sussex</option>
-              <option>Tyne and Wear</option>
-              <option>Warwickshire</option>
-              <option>West Midlands</option>
-              <option>Wiltshire</option>
-              <option>Worcestershire</option>
-              <option>Yorkshire</option>
-            </Form.Select>
-            <Form.Control placeholder="Post Code" className="mb-1" />
-          </Form.Group>
+      <div className="checkout-content">
+        <div className="order-summary">
+          <h2>Order Summary</h2>
+          <div className="order-items">
+            {basket.map((item) => (
+              <div key={item.id} className="order-item">
+                <div className="order-item-details">
+                  <span className="order-item-quantity">{item.qty}x</span>
+                  <span>{item.title}</span>
+                </div>
+                <span>£{(item.qty * item.price).toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+          <div className="order-total">
+            <span>Total</span>
+            <span>£{total.toFixed(2)}</span>
+          </div>
+        </div>
 
-          <Form.Group className="mb-3" controlId="formGridAddress2">
-            <Form.Label>Shipping Address</Form.Label>
-            <Form.Check
-              type="checkbox"
-              id="default checkbox"
-              label="Same as billing address"
-              className="mb-1"
-              onChange={() => {
-                isSameAddress();
-              }}
-            />
-            {sameAddress ? (
-              <>
-                <Form.Control placeholder="Name" className="mb-1" />
-                <Form.Control placeholder="Address Line 1" className="mb-1" />
-                <Form.Control placeholder="Address Line 2 (Optional)" className="mb-1" />
-                <Form.Control placeholder="Town / City" className="mb-1" />
-                <Form.Select defaultValue="County" className="mb-1">
-                  <option hidden>County</option>
-                  <option>Avon</option>
-                  <option>Berkshire</option>
-                  <option>Bedfordshire</option>
-                  <option>Buckinghamshire</option>
-                  <option>Cambridgeshire</option>
-                  <option>Cheshire</option>
-                  <option>Cornwall</option>
-                  <option>Cumbria</option>
-                  <option>Derbyshire</option>
-                  <option>Devon</option>
-                  <option>Dorset</option>
-                  <option>Durham</option>
-                  <option>Essex</option>
-                  <option>Gloucestershire</option>
-                  <option>Greater London</option>
-                  <option>Hampshire</option>
-                  <option>Herefordshire</option>
-                  <option>Hertfordshire</option>
-                  <option>Isle of Wight</option>
-                  <option>Kent</option>
-                  <option>Lancashire</option>
-                  <option>Leicestershire</option>
-                  <option>Lincolnshire</option>
-                  <option>Merseyside</option>
-                  <option>Norfolk</option>
-                  <option>Northamptonshire</option>
-                  <option>Northumberland</option>
-                  <option>Nottinghamshire</option>
-                  <option>Oxfordshire</option>
-                  <option>Rutland</option>
-                  <option>Schools</option>
-                  <option>Shropshire</option>
-                  <option>Somerset</option>
-                  <option>Staffordshire</option>
-                  <option>Suffolk</option>
-                  <option>Surrey</option>
-                  <option>Sussex</option>
-                  <option>Tyne and Wear</option>
-                  <option>Warwickshire</option>
-                  <option>West Midlands</option>
-                  <option>Wiltshire</option>
-                  <option>Worcestershire</option>
-                  <option>Yorkshire</option>
-                </Form.Select>
-                <Form.Control placeholder="Post Code" className="mb-1" />{" "}
-              </>
-            ) : (
-              ""
-            )}
-          </Form.Group>
-        </Row>
-      </Form>
-      <Card className="checkout-summary-card shadow-sm">
-        <Card.Header className="text-center">
-          <Card.Title className="my-auto">Summary</Card.Title>
-        </Card.Header>
-        <Card.Title className="mx-3">
-          <ListGroup className="list-group-flush">
-            {basket.map((item) => {
-              return (
-                <ListGroup.Item>
-                  <div>{item.title} </div>
-                  <div>{item.qty} x £2.99 </div>
-                </ListGroup.Item>
-              );
-            })}
-            <ListGroup.Item>
-              <div> Products: </div>
-              <div>£{(basketQty * 2.99).toFixed(2)}</div>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <div>Shipping:</div> <div>Free</div>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <div>Total:</div> <div>£{(basketQty * 2.99).toFixed(2)}</div>
-            </ListGroup.Item>
-          </ListGroup>
-          <div className="text-center">
-            <Link to="/basket">
-              <Button variant="danger" className="mx-1">
-                <FontAwesomeIcon icon={faArrowLeft} /> Back to basket
-              </Button>
-            </Link>
-            <Button variant="success" className="mx-1">
-              Complete Order!
+        <Form noValidate validated={validated} onSubmit={handleSubmit} className="checkout-form">
+          <div className="shipping-details">
+            <h2>Shipping Details</h2>
+            <Form.Group className="mb-3">
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control required type="text" placeholder="Enter your full name" />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Email</Form.Label>
+              <Form.Control required type="email" placeholder="Enter your email" />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Address Line 1</Form.Label>
+              <Form.Control required type="text" placeholder="Street address" />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Address Line 2</Form.Label>
+              <Form.Control type="text" placeholder="Apartment, suite, etc. (optional)" />
+            </Form.Group>
+
+            <div className="address-details">
+              <Form.Group className="mb-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control required type="text" placeholder="City" />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Postcode</Form.Label>
+                <Form.Control required type="text" placeholder="Postcode" />
+              </Form.Group>
+            </div>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Phone</Form.Label>
+              <Form.Control required type="tel" placeholder="Phone number" />
+            </Form.Group>
+          </div>
+
+          <div className="payment-details">
+            <h2>Payment Details</h2>
+            <Form.Group className="mb-3">
+              <Form.Label>Card Holder Name</Form.Label>
+              <Form.Control required type="text" placeholder="Name on card" />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Card Number</Form.Label>
+              <Form.Control required type="text" placeholder="1234 5678 9012 3456" />
+            </Form.Group>
+
+            <div className="card-details">
+              <Form.Group className="mb-3">
+                <Form.Label>Expiry Date</Form.Label>
+                <Form.Control required type="text" placeholder="MM/YY" />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>CVV</Form.Label>
+                <Form.Control required type="text" placeholder="123" />
+              </Form.Group>
+            </div>
+          </div>
+
+          <div className="checkout-actions">
+            <Button variant="outline-primary" onClick={() => navigate(-1)}>
+              <FontAwesomeIcon icon={faArrowLeft} /> Back
+            </Button>
+            <Button variant="success" type="submit">
+              <FontAwesomeIcon icon={faCreditCard} /> Pay £{total.toFixed(2)}
             </Button>
           </div>
-        </Card.Title>
-      </Card>
+        </Form>
+      </div>
     </div>
   );
 };
